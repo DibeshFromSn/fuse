@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fuse Library Demo</title>
+</head>
+<body>
+  <h1>Output from Fuse Library</h1>
+  <div id="output"></div>
+
+  <script type="module">
+    import * as Fuse from './dist/fuse.mjs';
+
+    // Example usage (you may need to adjust depending on the actual exports)
+    const output = typeof Fuse.default === 'function'
+      ? Fuse.default()               // If the library exports a default function
+      : JSON.stringify(Fuse);        // If it's an object or class
+
+    document.getElementById('output').textContent = output;
+  </script>
+</body>
+</html>
