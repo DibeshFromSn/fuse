@@ -19,1355 +19,760 @@
 <script type="module">
   import * as FuseLib from './fuse.mjs';
   const Fuse = FuseLib.default;
-//  const items = [
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Marine Biology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Graphic Design",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Bachelor", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Accounting",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Master", "Accounting"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Marine Biology",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Bachelor", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Robotics Engineering",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "PhD", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Veterinary Science",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Bachelor", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Robotics Engineering",
-//     university: "University of Southern Queensland",
-//     tags: ["USQ", "Master", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Veterinary Science",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Bachelor", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Linguistics",
-//     university: "University of Notre Dame",
-//     tags: ["Notre Dame", "PhD", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Biotechnology",
-//     university: "University of Notre Dame",
-//     tags: ["Notre Dame", "PhD", "Biotechnology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Robotics Engineering",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Graphic Design",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "Flinders University",
-//    tags: ["Flinders", "flinder", "Anthropology", "antropology", "Master"]
-
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Occupational Therapy",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Marine Biology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "PhD", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Accounting",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Master", "Accounting"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Robotics Engineering",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Bachelor", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Graphic Design",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Master", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Linguistics",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Bachelor", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Graphic Design",
-//     university: "University of Southern Queensland",
-//     tags: ["USQ", "PhD", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Marine Biology",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Master", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Astronomy",
-//     university: "Torrens University",
-//     tags: ["Torrens", "PhD", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Sports Management",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Bachelor", "Sports Management"]
-//   }
-// ];
-//  items.push(
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Veterinary Science",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Anthropology",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Marine Biology",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Master", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Linguistics",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Occupational Therapy",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Master", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Dentistry",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Accounting",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Accounting"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Marine Biology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "PhD", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Biotechnology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Biotechnology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Biotechnology",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Bachelor", "Biotechnology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Linguistics",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "PhD", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Astronomy",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Master", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Dentistry",
-//     university: "Torrens University",
-//     tags: ["Torrens", "PhD", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Robotics Engineering",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Veterinary Science",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Sports Management",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Sports Management"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Sports Management",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Sports Management"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Occupational Therapy",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Dentistry",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "PhD", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Graphic Design",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Bachelor", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Astronomy",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "PhD", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Graphic Design",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Veterinary Science",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Dentistry",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Biotechnology",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Biotechnology"]
-//   }
-// );
-//  items.push(
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Veterinary Science",
-//     university: "Torrens University",
-//     tags: ["Torrens", "PhD", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Anthropology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Astronomy",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Dentistry",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Bachelor", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Robotics Engineering",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Graphic Design",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Linguistics",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Marine Biology",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Bachelor", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Biotechnology",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Master", "Biotechnology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Graphic Design",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Astronomy",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Accounting",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "PhD", "Accounting"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Anthropology",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Bachelor", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Sports Management",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Master", "Sports Management"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Sports Management",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Sports Management"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Accounting",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Bachelor", "Accounting"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Veterinary Science",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Master", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Dentistry",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Astronomy",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "Bachelor", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Occupational Therapy",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Linguistics",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Anthropology",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Veterinary Science",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "PhD", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Astronomy",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Master", "Astronomy"]
-//   }
-// );
-//  items.push(
-//   {
-//     studyLevel: "Master",
-//     courseName: "Linguistics",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Marine Biology",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Graphic Design",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "Charles Darwin University",
-//     tags: ["CDU", "PhD", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Dentistry",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Master", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Astronomy",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Accounting",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Accounting"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Occupational Therapy",
-//     university: "Torrens University",
-//     tags: ["Torrens", "PhD", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Biotechnology",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Biotechnology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Graphic Design",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Master", "Graphic Design"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Sports Management",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Sports Management"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Marine Biology",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Robotics Engineering",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "Bachelor", "Robotics Engineering"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Dentistry",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Dentistry"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Veterinary Science",
-//     university: "Torrens University",
-//     tags: ["Torrens", "Master", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Anthropology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Bachelor", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Astronomy",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Linguistics",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "PhD", "Linguistics"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Occupational Therapy",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Occupational Therapy"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Marine Biology",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Marine Biology"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Accounting",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "Master", "Accounting"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Anthropology",
-//     university: "University of Divinity",
-//     tags: ["Divinity", "PhD", "Anthropology"]
-//   },
-//   {
-//     studyLevel: "Bachelor",
-//     courseName: "Astronomy",
-//     university: "Murdoch University",
-//     tags: ["Murdoch", "Bachelor", "Astronomy"]
-//   },
-//   {
-//     studyLevel: "PhD",
-//     courseName: "Veterinary Science",
-//     university: "University of Sunshine Coast",
-//     tags: ["USC", "PhD", "Veterinary Science"]
-//   },
-//   {
-//     studyLevel: "Master",
-//     courseName: "Biotechnology",
-//     university: "Flinders University",
-//     tags: ["Flinders", "Master", "Biotechnology"]
-//   }
-// );
-
-
+  
 const items = [ ];
- items.push( 
-   {
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "895277A",
-    field: "Business",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "flinders university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Curtin University",
-    intake: "February, July",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "1 year full-time",
-    deliveryMode: "Online",
-    cricosCode: "349844A",
-    field: "Arts",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "curtin university"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Public Health",
-    university: "University of Sunshine Coast",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "228360A",
-    field: "Business",
-    tags: ["science", "phd", "murdoch", "public health", "sunshine coast", "diploma", "university of sunshine coast"]
-  }, {
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "895277A",
-    field: "Business",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "flinders university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Curtin University",
-    intake: "February, July",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "1 year full-time",
-    deliveryMode: "Online",
-    cricosCode: "349844A",
-    field: "Arts",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "curtin university"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Public Health",
-    university: "University of Sunshine Coast",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "228360A",
-    field: "Business",
-    tags: ["science", "phd", "murdoch", "public health", "sunshine coast", "diploma", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Data Science",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$32,000 per year",
-    campus: "Brisbane",
-    duration: "2 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "904635A",
-    field: "Arts",
-    tags: ["arts", "architecture", "flinders", "data science", "brisbane", "master", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Curtin University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "419373A",
-    field: "Health",
-    tags: ["science", "phd", "murdoch", "computer science", "darwin", "phd", "curtin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Education",
-    university: "University of Sunshine Coast",
-    intake: "May, November",
-    fees: "$28,000 per year",
-    campus: "Sydney",
-    duration: "3.5 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "328302A",
-    field: "Education",
-    tags: ["health", "bachelor", "flinders", "education", "sydney", "bachelor", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Data Science",
-    university: "Curtin University",
-    intake: "March, August",
-    fees: "$32,000 per year",
-    campus: "Brisbane",
-    duration: "4 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "932193A",
-    field: "Health",
-    tags: ["arts", "architecture", "flinders", "data science", "brisbane", "diploma", "curtin university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "May, November",
-    fees: "$32,000 per year",
-    campus: "Sydney",
-    duration: "2 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "434222A",
-    field: "Health",
-    tags: ["arts", "architecture", "flinders", "public health", "sydney", "master", "flinders university"]
-  },  {
-    studyLevel: "PhD",
-    courseName: "Education",
-    university: "University of Sunshine Coast",
-    intake: "March, August",
-    fees: "$30,500 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "891963A",
-    field: "Technology",
-    tags: ["technology", "msc", "usc", "education", "adelaide", "phd", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Education",
-    university: "University of Sunshine Coast",
-    intake: "January, September",
-    fees: "$32,000 per year",
-    campus: "Darwin",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "469049A",
-    field: "Science",
-    tags: ["arts", "architecture", "flinders", "education", "darwin", "diploma", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Data Science",
-    university: "Curtin University",
-    intake: "March, August",
-    fees: "$28,000 per year",
-    campus: "Perth",
-    duration: "1 year full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "559158A",
-    field: "Business",
-    tags: ["arts", "architecture", "flinders", "data science", "perth", "phd", "curtin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Education",
-    university: "Curtin University",
-    intake: "May, November",
-    fees: "$28,000 per year",
-    campus: "Brisbane",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "450442A",
-    field: "Education",
-    tags: ["arts", "architecture", "flinders", "education", "brisbane", "bachelor", "curtin university"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Computer Science",
-    university: "University of Sunshine Coast",
-    intake: "May, November",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "3.5 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "250712A",
-    field: "Education",
-    tags: ["arts", "architecture", "flinders", "computer science", "melbourne", "diploma", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Psychology",
-    university: "University of Sunshine Coast",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "197633A",
-    field: "Education",
-    tags: ["arts", "architecture", "flinders", "psychology", "adelaide", "phd", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Data Science",
-    university: "Charles Darwin University",
-    intake: "April, October",
-    fees: "$28,000 per year",
-    campus: "Brisbane",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "263764A",
-    field: "Arts",
-    tags: ["technology", "msc", "usc", "data science", "brisbane", "master", "charles darwin university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Education",
-    university: "University of Sunshine Coast",
-    intake: "May, November",
-    fees: "$32,000 per year",
-    campus: "Darwin",
-    duration: "1 year full-time",
-    deliveryMode: "Online",
-    cricosCode: "601781A",
-    field: "Technology",
-    tags: ["arts", "architecture", "flinders", "education", "darwin", "phd", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Psychology",
-    university: "University of Sunshine Coast",
-    intake: "February, July",
-    fees: "$30,500 per year",
-    campus: "Melbourne",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "115822A",
-    field: "Technology",
-    tags: ["technology", "msc", "usc", "psychology", "melbourne", "bachelor", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Education",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Perth",
-    duration: "3.5 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "984494A",
-    field: "Health",
-    tags: ["technology", "msc", "usc", "education", "perth", "diploma", "flinders university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Education",
-    university: "Murdoch University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "282805A",
-    field: "Education",
-    tags: ["technology", "msc", "usc", "education", "melbourne", "Master", "murdoch university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Psychology",
-    university: "Charles Darwin University",
-    intake: "March, August",
-    fees: "$30,500 per year",
-    campus: "Brisbane",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "929517A",
-    field: "Science",
-    tags: ["science", "phd", "murdoch", "psychology", "brisbane", "bachelor", "charles darwin university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Data Science",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$32,000 per year",
-    campus: "Brisbane",
-    duration: "2 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "904635A",
-    field: "Arts",
-    tags: ["arts", "architecture", "flinders", "data science", "brisbane", "master", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Curtin University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "419373A",
-    field: "Health",
-    tags: ["science", "phd", "murdoch", "computer science", "darwin", "phd", "curtin university"]
-  },{
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "895277A",
-    field: "Business",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "flinders university"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Nursing",
-    university: "Curtin University",
-    intake: "February, July",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "1 year full-time",
-    deliveryMode: "Online",
-    cricosCode: "349844A",
-    field: "Arts",
-    tags: ["health", "bachelor", "flinders", "nursing", "melbourne", "master", "curtin university"]
-  },
-  {
-    studyLevel: "Diploma",
-    courseName: "Public Health",
-    university: "University of Sunshine Coast",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "228360A",
-    field: "Business",
-    tags: ["science", "phd", "murdoch", "public health", "sunshine coast", "diploma", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Master",
-    courseName: "Data Science",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$32,000 per year",
-    campus: "Brisbane",
-    duration: "2 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "904635A",
-    field: "Arts",
-    tags: ["arts", "architecture", "flinders", "data science", "brisbane", "master", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Curtin University",
-    intake: "April, October",
-    fees: "$30,500 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "419373A",
-    field: "Health",
-    tags: ["science", "phd", "murdoch", "computer science", "darwin", "phd", "curtin university"]
-  },
- {
-    studyLevel: "PhD",
-    courseName: "Nursing",
-    university: "Charles Darwin University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "761873A",
-    field: "Business",
-    tags: ["CDU", "nursing", "phd", "darwin", "business", "charles darwin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Architecture",
-    university: "Flinders University",
-    intake: "February, July",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "165867A",
-    field: "Arts",
-    tags: ["flinders", "architecture", "bachelor", "adelaide", "arts", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Murdoch University",
-    intake: "January, September",
-    fees: "32,000 ",
-    campus: "Perth",
-    duration: "2 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "845517A",
-    field: "Science",
-    tags: ["murdoch", "computer science", "phd", "perth", "science", "murdoch university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Physics",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "655790A",
-    field: "Science",
-    tags: ["flinders", "physics", "phd", "adelaide", "science", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "University of Sunshine Coast",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "353637A",
-    field: "Technology",
-    tags: ["usc", "computer science", "phd", "sunshine coast", "technology", "university of sunshine coast"]
-  },{
-    studyLevel: "PhD",
-    courseName: "Nursing",
-    university: "Charles Darwin University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "761873A",
-    field: "Business",
-    tags: ["charles", "nursing", "phd", "darwin", "business", "charles darwin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Architecture",
-    university: "Flinders University",
-    intake: "February, July",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "165867A",
-    field: "Arts",
-    tags: ["flinders", "architecture", "bachelor", "adelaide", "arts", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Murdoch University",
-    intake: "January, September",
-    fees: "$32,000",
-    campus: "Perth",
-    duration: "2 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "845517A",
-    field: "Science",
-    tags: ["murdoch", "computer science", "phd", "perth", "science", "murdoch university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Physics",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "655790A",
-    field: "Science",
-    tags: ["flinders", "physics", "phd", "adelaide", "science", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "University of Sunshine Coast",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "353637A",
-    field: "Technology",
-    tags: ["university", "computer science", "phd", "sunshine coast", "technology", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Adelaide",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "443322A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "adelaide", "health", "flinders university"]
-  },{
-    studyLevel: "PhD",
-    courseName: "Nursing",
-    university: "Charles Darwin University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Darwin",
-    duration: "4 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "761873A",
-    field: "Business",
-    tags: ["charles", "nursing", "phd", "darwin", "business", "charles darwin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Architecture",
-    university: "Flinders University",
-    intake: "February, July",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "165867A",
-    field: "Arts",
-    tags: ["flinders", "architecture", "bachelor", "adelaide", "arts", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "Murdoch University",
-    intake: "January, September",
-    fees: "$32,000",
-    campus: "Perth",
-    duration: "2 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "845517A",
-    field: "Science",
-    tags: ["murdoch", "computer science", "phd", "perth", "science", "murdoch university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Physics",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$28,000 per year",
-    campus: "Adelaide",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "655790A",
-    field: "Science",
-    tags: ["flinders", "physics", "phd", "adelaide", "science", "flinders university"]
-  },
-  {
-    studyLevel: "PhD",
-    courseName: "Computer Science",
-    university: "University of Sunshine Coast",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Sunshine Coast",
-    duration: "4 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "353637A",
-    field: "Technology",
-    tags: ["university", "computer science", "phd", "sunshine coast", "technology", "university of sunshine coast"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Adelaide",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "443322A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "adelaide", "health", "flinders university"]
-  },
+ items.push( {
+  studyLevel: "Diploma",
+  courseName: "Nursing",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "438716A",
+  field: "Community Care",
+  tags: ["hobart", "monashuniversity", "nursing", "health"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Health Administration",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$24,000 per year",
+  campus: "Sydney",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "495105A",
+  field: "Community Care",
+  tags: ["adelaide", "monashuniversity", "health", "healthadministration"]
+},
 {
   studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "March, August",
-    fees: "$25,700 per year",
-    campus: "Adelaide",
-    duration: "3 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "286719A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "adelaide", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Sydney",
-    duration: "3 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "770997A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "sydney", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Sydney",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "275133A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "sydney", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "170950A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "melbourne", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "February, July",
-    fees: "$25,700 per year",
-    campus: "Darwin",
-    duration: "3.5 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "813814A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "darwin", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "4 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "126897A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "melbourne", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "February, July",
-    fees: "$25,700 per year",
-    campus: "Darwin",
-    duration: "3 years full-time",
-    deliveryMode: "Online",
-    cricosCode: "986215A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "darwin", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Charles Darwin University",
-    intake: "March, August",
-    fees: "$25,700 per year",
-    campus: "Sydney",
-    duration: "3.5 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "562381A",
-    field: "Health",
-    tags: ["CDU", "public health", "bachelor", "sydney", "health", "Charles Darwin university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "January, September",
-    fees: "$25,700 per year",
-    campus: "Brisbane",
-    duration: "3 years full-time",
-    deliveryMode: "On-campus",
-    cricosCode: "454287A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "brisbane", "health", "flinders university"]
-  },
-  {
-    studyLevel: "Bachelor",
-    courseName: "Public Health",
-    university: "Flinders University",
-    intake: "April, October",
-    fees: "$25,700 per year",
-    campus: "Melbourne",
-    duration: "3 years full-time",
-    deliveryMode: "Hybrid",
-    cricosCode: "376229A",
-    field: "Health",
-    tags: ["flinders", "public health", "bachelor", "melbourne", "health", "flinders university"]
-  }
+  courseName: "Global Health",
+  university: "University of Wollongong",
+  intake: "March, August",
+  fees: "$27,500 per year",
+  campus: "Brisbane",
+  duration: "3.5 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "463011A",
+  field: "Data Science",
+  tags: ["globalhealth", "melbourne", "health", "universityofwollongong"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Mental Health",
+  university: "Monash University",
+  intake: "February, October",
+  fees: "$24,000 per year",
+  campus: "Melbourne",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "462856A",
+  field: "Community Care",
+  tags: ["mentalhealth", "monashuniversity", "health", "brisbane"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Health Administration",
+  university: "University of Sydney",
+  intake: "February, October",
+  fees: "$31,200 per year",
+  campus: "Perth",
+  duration: "1 year full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "422629A",
+  field: "Wellbeing",
+  tags: ["universityofsydney", "healthadministration", "health", "darwin"]
+},{
+  studyLevel: "Diploma",
+  courseName: "Nursing",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "438716A",
+  field: "Community Care",
+  tags: ["hobart", "monashuniversity", "nursing", "health"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Health Administration",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$24,000 per year",
+  campus: "Sydney",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "495105A",
+  field: "Community Care",
+  tags: ["adelaide", "monashuniversity", "health", "healthadministration"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Global Health",
+  university: "University of Wollongong",
+  intake: "March, August",
+  fees: "$27,500 per year",
+  campus: "Brisbane",
+  duration: "3.5 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "463011A",
+  field: "Data Science",
+  tags: ["globalhealth", "melbourne", "health", "universityofwollongong"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Mental Health",
+  university: "Monash University",
+  intake: "February, October",
+  fees: "$24,000 per year",
+  campus: "Melbourne",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "462856A",
+  field: "Community Care",
+  tags: ["mentalhealth", "monashuniversity", "health", "brisbane"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Health Administration",
+  university: "University of Sydney",
+  intake: "February, October",
+  fees: "$31,200 per year",
+  campus: "Perth",
+  duration: "1 year full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "422629A",
+  field: "Wellbeing",
+  tags: ["universityofsydney", "healthadministration", "health", "darwin"]
+},{
+  studyLevel: "Diploma",
+  courseName: "Nursing",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "438716A",
+  field: "Community Care",
+  tags: ["hobart", "monashuniversity", "nursing", "health"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Health Administration",
+  university: "Monash University",
+  intake: "January, July",
+  fees: "$24,000 per year",
+  campus: "Sydney",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "495105A",
+  field: "Community Care",
+  tags: ["adelaide", "monashuniversity", "health", "healthadministration"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Global Health",
+  university: "University of Wollongong",
+  intake: "March, August",
+  fees: "$27,500 per year",
+  campus: "Brisbane",
+  duration: "3.5 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "463011A",
+  field: "Data Science",
+  tags: ["globalhealth", "melbourne", "health", "universityofwollongong"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Mental Health",
+  university: "Monash University",
+  intake: "February, October",
+  fees: "$24,000 per year",
+  campus: "Melbourne",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "462856A",
+  field: "Community Care",
+  tags: ["mentalhealth", "monashuniversity", "health", "brisbane"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Health Administration",
+  university: "University of Sydney",
+  intake: "February, October",
+  fees: "$31,200 per year",
+  campus: "Perth",
+  duration: "1 year full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "422629A",
+  field: "Wellbeing",
+  tags: ["universityofsydney", "healthadministration", "health", "darwin"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Biomedical Science",
+  university: "Curtin University",
+  intake: "April, September",
+  fees: "$29,000 per year",
+  campus: "Darwin",
+  duration: "4 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "422084A",
+  field: "Medical Science",
+  tags: ["biomedicalscience", "curtinuniversity", "health", "darwin"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Public Health",
+  university: "University of Newcastle",
+  intake: "May, November",
+  fees: "$26,000 per year",
+  campus: "Adelaide",
+  duration: "2 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "436765A",
+  field: "Health",
+  tags: ["universityofnewcastle", "publichealth", "health", "melbourne"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Occupational Therapy",
+  university: "James Cook University",
+  intake: "February, October",
+  fees: "$27,500 per year",
+  campus: "Sydney",
+  duration: "1.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "443139A",
+  field: "Community Care",
+  tags: ["occupationaltherapy", "jamescookuniversity", "health", "hobart"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Health Informatics",
+  university: "University of Melbourne",
+  intake: "January, July",
+  fees: "$29,000 per year",
+  campus: "Melbourne",
+  duration: "3 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "494295A",
+  field: "Health",
+  tags: ["universityofmelbourne", "healthinformatics", "health", "perth"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Community Health",
+  university: "University of Wollongong",
+  intake: "March, August",
+  fees: "$26,000 per year",
+  campus: "Brisbane",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "454699A",
+  field: "Community Care",
+  tags: ["communityhealth", "universityofwollongong", "health", "darwin"]
+},{
+  studyLevel: "PhD",
+  courseName: "Mental Health",
+  university: "Curtin University",
+  intake: "May, November",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "4 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "480338A",
+  field: "Wellbeing",
+  tags: ["curtinuniversity", "mentalhealth", "health", "melbourne"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Public Health",
+  university: "University of Newcastle",
+  intake: "April, September",
+  fees: "$24,000 per year",
+  campus: "Perth",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "478152A",
+  field: "Health",
+  tags: ["universityofnewcastle", "publichealth", "health", "sydney"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Health Informatics",
+  university: "University of Sydney",
+  intake: "February, October",
+  fees: "$26,000 per year",
+  campus: "Darwin",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "482901A",
+  field: "Data Science",
+  tags: ["universityofsydney", "healthinformatics", "health", "darwin"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Occupational Therapy",
+  university: "Charles Darwin University",
+  intake: "March, August",
+  fees: "$29,000 per year",
+  campus: "Melbourne",
+  duration: "2 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "449273A",
+  field: "Health",
+  tags: ["charlesdarwinuniversity", "occupationaltherapy", "health", "melbourne"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Epidemiology",
+  university: "University of Melbourne",
+  intake: "April, September",
+  fees: "$31,200 per year",
+  campus: "Sydney",
+  duration: "4 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "429063A",
+  field: "Medical Science",
+  tags: ["universityofmelbourne", "epidemiology", "health", "sydney"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Health Informatics",
+  university: "James Cook University",
+  intake: "February, October",
+  fees: "$26,000 per year",
+  campus: "Adelaide",
+  duration: "3 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "463873A",
+  field: "Data Science",
+  tags: ["jamescookuniversity", "healthinformatics", "health", "adelaide"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Nursing",
+  university: "University of Sydney",
+  intake: "May, November",
+  fees: "$24,000 per year",
+  campus: "Brisbane",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "484329A",
+  field: "Community Care",
+  tags: ["universityofsydney", "nursing", "health", "brisbane"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Biomedical Science",
+  university: "Curtin University",
+  intake: "January, July",
+  fees: "$29,000 per year",
+  campus: "Perth",
+  duration: "2 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "457387A",
+  field: "Medical Science",
+  tags: ["curtinuniversity", "biomedicalscience", "health", "perth"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Community Health",
+  university: "University of Newcastle",
+  intake: "March, August",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "472174A",
+  field: "Community Care",
+  tags: ["universityofnewcastle", "communityhealth", "health", "hobart"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Mental Health",
+  university: "James Cook University",
+  intake: "April, September",
+  fees: "$26,000 per year",
+  campus: "Darwin",
+  duration: "2 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "477981A",
+  field: "Wellbeing",
+  tags: ["jamescookuniversity", "mentalhealth", "health", "darwin"]
+},
+
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Health Science",
+  university: "University of Melbourne",
+  intake: "February, October",
+  fees: "$24,000 per year",
+  campus: "Sydney",
+  duration: "1 year full-time",
+  deliveryMode: "Online",
+  cricosCode: "472981A",
+  field: "Health",
+  tags: ["universityofmelbourne", "healthscience", "health", "sydney"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Public Health",
+  university: "Charles Darwin University",
+  intake: "March, August",
+  fees: "$26,000 per year",
+  campus: "Brisbane",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "488613A",
+  field: "Health",
+  tags: ["charlesdarwinuniversity", "publichealth", "health", "brisbane"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Nursing",
+  university: "University of Wollongong",
+  intake: "April, September",
+  fees: "$27,500 per year",
+  campus: "Melbourne",
+  duration: "3.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "469728A",
+  field: "Community Care",
+  tags: ["universityofwollongong", "nursing", "health", "melbourne"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Biomedical Science",
+  university: "Curtin University",
+  intake: "May, November",
+  fees: "$31,200 per year",
+  campus: "Adelaide",
+  duration: "4 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "485374A",
+  field: "Medical Science",
+  tags: ["curtinuniversity", "biomedicalscience", "health", "adelaide"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Health Informatics",
+  university: "University of Sydney",
+  intake: "January, July",
+  fees: "$24,000 per year",
+  campus: "Hobart",
+  duration: "2 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "462304A",
+  field: "Data Science",
+  tags: ["universityofsydney", "healthinformatics", "health", "hobart"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Occupational Therapy",
+  university: "University of Newcastle",
+  intake: "April, September",
+  fees: "$26,000 per year",
+  campus: "Darwin",
+  duration: "1 year full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "466572A",
+  field: "Community Care",
+  tags: ["universityofnewcastle", "occupationaltherapy", "health", "darwin"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Mental Health",
+  university: "James Cook University",
+  intake: "February, October",
+  fees: "$27,500 per year",
+  campus: "Perth",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "479617A",
+  field: "Wellbeing",
+  tags: ["jamescookuniversity", "mentalhealth", "health", "perth"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Epidemiology",
+  university: "University of Sydney",
+  intake: "March, August",
+  fees: "$29,000 per year",
+  campus: "Sydney",
+  duration: "3 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "473619A",
+  field: "Medical Science",
+  tags: ["universityofsydney", "epidemiology", "health",]
+},{
+  studyLevel: "Graduate Certificate",
+  courseName: "Health Science",
+  university: "James Cook University",
+  intake: "March, August",
+  fees: "$24,000 per year",
+  campus: "Sydney",
+  duration: "1 year full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "487314A",
+  field: "Health",
+  tags: ["jamescookuniversity", "healthscience", "health", "sydney"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Occupational Therapy",
+  university: "University of Newcastle",
+  intake: "February, October",
+  fees: "$29,000 per year",
+  campus: "Hobart",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "455892A",
+  field: "Community Care",
+  tags: ["universityofnewcastle", "occupationaltherapy", "health", "hobart"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Health Informatics",
+  university: "Curtin University",
+  intake: "May, November",
+  fees: "$27,500 per year",
+  campus: "Melbourne",
+  duration: "3 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "473861A",
+  field: "Data Science",
+  tags: ["curtinuniversity", "healthinformatics", "health", "melbourne"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Mental Health",
+  university: "University of Melbourne",
+  intake: "January, July",
+  fees: "$26,000 per year",
+  campus: "Darwin",
+  duration: "2 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "469185A",
+  field: "Wellbeing",
+  tags: ["universityofmelbourne", "mentalhealth", "health", "darwin"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Epidemiology",
+  university: "University of Wollongong",
+  intake: "April, September",
+  fees: "$31,200 per year",
+  campus: "Brisbane",
+  duration: "4 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "478911A",
+  field: "Medical Science",
+  tags: ["universityofwollongong", "epidemiology", "health", "brisbane"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Biomedical Science",
+  university: "University of Sydney",
+  intake: "March, August",
+  fees: "$29,000 per year",
+  campus: "Adelaide",
+  duration: "2 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "476128A",
+  field: "Medical Science",
+  tags: ["universityofsydney", "biomedicalscience", "health", "adelaide"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Public Health",
+  university: "University of Melbourne",
+  intake: "February, October",
+  fees: "$24,000 per year",
+  campus: "Perth",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "482003A",
+  field: "Health",
+  tags: ["universityofmelbourne", "publichealth", "health", "perth"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Global Health",
+  university: "Charles Darwin University",
+  intake: "January, July",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "493814A",
+  field: "Health",
+  tags: ["charlesdarwinuniversity", "globalhealth", "health", "hobart"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Community Health",
+  university: "University of Newcastle",
+  intake: "April, September",
+  fees: "$31,200 per year",
+  campus: "Sydney",
+  duration: "4 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "496738A",
+  field: "Community Care",
+  tags: ["universityofnewcastle", "communityhealth", "health", "sydney"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Health Administration",
+  university: "Monash University",
+  intake: "March, August",
+  fees: "$26,000 per year",
+  campus: "Melbourne",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "492004A",
+  field: "Health",
+  tags: ["monashuniversity", "healthadministration", "health", "melbourne"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Mental Health",
+  university: "James Cook University",
+  intake: "May, November",
+  fees: "$27,500 per year",
+  campus: "Darwin",
+  duration: "3 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "499003A",
+  field: "Wellbeing",
+  tags: ["jamescookuniversity", "mentalhealth", "health", "darwin"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Health Science",
+  university: "University of Wollongong",
+  intake: "January, July",
+  fees: "$31,200 per year",
+  campus: "Perth",
+  duration: "4 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "471282A",
+  field: "Health",
+  tags: ["universityofwollongong", "healthscience", "health", "perth"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Occupational Therapy",
+  university: "University of Sydney",
+  intake: "February, October",
+  fees: "$26,000 per year",
+  campus: "Brisbane",
+  duration: "1.5 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "491030A",
+  field: "Community Care",
+  tags: ["universityofsydney", "occupationaltherapy", "health", "brisbane"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Biomedical Science",
+  university: "Curtin University",
+  intake: "March, August",
+  fees: "$29,000 per year",
+  campus: "Sydney",
+  duration: "2 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "493107A",
+  field: "Medical Science",
+  tags: ["curtinuniversity", "biomedicalscience", "health", "sydney"]
+},
+{
+  studyLevel: "Master",
+  courseName: "Health Administration",
+  university: "University of Melbourne",
+  intake: "April, September",
+  fees: "$31,200 per year",
+  campus: "Melbourne",
+  duration: "2 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "498223A",
+  field: "Health",
+  tags: ["universityofmelbourne", "healthadministration", "health", "melbourne"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Health Informatics",
+  university: "University of Newcastle",
+  intake: "February, October",
+  fees: "$27,500 per year",
+  campus: "Hobart",
+  duration: "3 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "489452A",
+  field: "Data Science",
+  tags: ["universityofnewcastle", "healthinformatics", "health", "hobart"]
+},
+{
+  studyLevel: "PhD",
+  courseName: "Public Health",
+  university: "Charles Darwin University",
+  intake: "March, August",
+  fees: "$29,000 per year",
+  campus: "Brisbane",
+  duration: "4 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "497338A",
+  field: "Health",
+  tags: ["charlesdarwinuniversity", "publichealth", "health", "brisbane"]
+},
+{
+  studyLevel: "Graduate Certificate",
+  courseName: "Epidemiology",
+  university: "Monash University",
+  intake: "May, November",
+  fees: "$24,000 per year",
+  campus: "Perth",
+  duration: "1.5 years full-time",
+  deliveryMode: "Online",
+  cricosCode: "495015A",
+  field: "Medical Science",
+  tags: ["monashuniversity", "epidemiology", "health", "perth"]
+},
+{
+  studyLevel: "Diploma",
+  courseName: "Community Health",
+  university: "University of Sydney",
+  intake: "January, July",
+  fees: "$26,000 per year",
+  campus: "Adelaide",
+  duration: "2 years full-time",
+  deliveryMode: "On-campus",
+  cricosCode: "490148A",
+  field: "Community Care",
+  tags: ["universityofsydney", "communityhealth", "health", "adelaide"]
+},
+{
+  studyLevel: "Bachelor",
+  courseName: "Global Health",
+  university: "Curtin University",
+  intake: "February, October",
+  fees: "$27,500 per year",
+  campus: "Melbourne",
+  duration: "3 years full-time",
+  deliveryMode: "Hybrid",
+  cricosCode: "491900A",
+  field: "Health",
+  tags: ["curtinuniversity", "globalhealth", "health", "melbourne"]
+}
+ 
  );
  
 
